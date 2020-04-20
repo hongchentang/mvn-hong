@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hcis.hcrp.report.template.mapper.HcrpDimensionFormulaMapper" >
+  <resultMap id="BaseResultMap" type="com.hcis.hcrp.report.template.entity.HcrpDimensionFormula" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="DIMENSION_ID" property="dimensionId" jdbcType="VARCHAR" />
+    <result column="FORMULA_KEY" property="formulaKey" jdbcType="VARCHAR" />
+    <result column="FORMULA_VAL" property="formulaVal" jdbcType="VARCHAR" />
+    <result column="FORMULA_HTML" property="formulaHtml" jdbcType="VARCHAR" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_BY" property="updatedby" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DELETED" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="VERSION" property="version" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DIMENSION_ID, FORMULA_KEY, FORMULA_VAL, FORMULA_HTML, CREATOR, CREATE_TIME, UPDATE_BY, 
+    UPDATE_TIME, IS_DELETED, VERSION
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from hcrp_dimension_formula
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from hcrp_dimension_formula
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hcis.hcrp.report.template.entity.HcrpDimensionFormula" >
+    insert into hcrp_dimension_formula (ID, DIMENSION_ID, FORMULA_KEY,
+      FORMULA_VAL, FORMULA_HTML, CREATOR, 
+      CREATE_TIME, UPDATE_BY, UPDATE_TIME, 
+      IS_DELETED, VERSION)
+    values (#{id,jdbcType=VARCHAR}, #{dimensionId,jdbcType=VARCHAR}, #{formulaKey,jdbcType=VARCHAR}, 
+      #{formulaVal,jdbcType=VARCHAR}, #{formulaHtml,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updatedby,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP},
+      #{isDeleted,jdbcType=VARCHAR}, #{version,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hcis.hcrp.report.template.entity.HcrpDimensionFormula" >
+    insert into hcrp_dimension_formula
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="dimensionId != null" >
+        DIMENSION_ID,
+      </if>
+      <if test="formulaKey != null" >
+        FORMULA_KEY,
+      </if>
+      <if test="formulaVal != null" >
+        FORMULA_VAL,
+      </if>
+      <if test="formulaHtml != null" >
+        FORMULA_HTML,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updatedby != null" >
+        UPDATE_BY,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED,
+      </if>
+      <if test="version != null" >
+        VERSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionId != null" >
+        #{dimensionId,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaKey != null" >
+        #{formulaKey,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaVal != null" >
+        #{formulaVal,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaHtml != null" >
+        #{formulaHtml,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updatedByPrimaryKeySelective" parameterType="com.hcis.hcrp.report.template.entity.HcrpDimensionFormula" >
+    update hcrp_dimension_formula
+    <set >
+      <if test="dimensionId != null" >
+        DIMENSION_ID = #{dimensionId,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaKey != null" >
+        FORMULA_KEY = #{formulaKey,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaVal != null" >
+        FORMULA_VAL = #{formulaVal,jdbcType=VARCHAR},
+      </if>
+      <if test="formulaHtml != null" >
+        FORMULA_HTML = #{formulaHtml,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        UPDATE_BY = #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hcis.hcrp.report.template.entity.HcrpDimensionFormula" >
+    update hcrp_dimension_formula
+    set DIMENSION_ID = #{dimensionId,jdbcType=VARCHAR},
+      FORMULA_KEY = #{formulaKey,jdbcType=VARCHAR},
+      FORMULA_VAL = #{formulaVal,jdbcType=VARCHAR},
+      FORMULA_HTML = #{formulaHtml,jdbcType=VARCHAR},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{updatedby,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      VERSION = #{version,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectAllFormulaByTempId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT
+      df.*
+    FROM
+      hcrp_report_template AS rt
+        LEFT JOIN hcrp_dimension AS d ON d.TEMPLATE_ID = rt.ID
+        LEFT JOIN hcrp_dimension_formula AS df ON df.DIMENSION_ID = d.ID
+    WHERE rt.ID = #{_tempId, jdbcType=VARCHAR}
+      /*and rt.IS_DELETED = 'N'*/
+      and d.IS_DELETED = 'N'
+      and df.IS_DELETED = 'N'
+    GROUP BY df.id
+  </select>
+
+  <select id="listFormula" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT hdf.* FROM hcrp_report_template AS rt
+        INNER JOIN hcrp_dimension AS hd ON hd.TEMPLATE_ID = rt.ID
+        INNER JOIN hcrp_dimension_formula AS hdf ON hdf.DIMENSION_ID = hd.ID
+    WHERE rt.ID = #{_tempId, jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insertBatch" parameterType="java.util.List">
+    insert into hcrp_dimension_formula (ID, DIMENSION_ID, FORMULA_KEY,
+                                        FORMULA_VAL, FORMULA_HTML, CREATOR,
+                                        CREATE_TIME, UPDATE_BY, UPDATE_TIME,
+                                        IS_DELETED, VERSION)
+    values
+     <foreach collection="list" item="formula" separator=",">
+       (#{formula.id,jdbcType=VARCHAR}, #{formula.dimensionId,jdbcType=VARCHAR}, #{formula.formulaKey,jdbcType=VARCHAR},
+       #{formula.formulaVal,jdbcType=VARCHAR}, #{formula.formulaHtml,jdbcType=VARCHAR}, #{formula.creator,jdbcType=VARCHAR},
+       #{formula.createTime,jdbcType=TIMESTAMP}, #{formula.updatedby,jdbcType=VARCHAR}, #{formula.updateTime,jdbcType=TIMESTAMP},
+       #{formula.isDeleted,jdbcType=VARCHAR}, #{formula.version,jdbcType=BIGINT})
+     </foreach>
+  </insert>
+
+    <delete id="deleteByTempId" parameterType="java.lang.String">
+        DELETE FROM hcrp_dimension_formula WHERE DIMENSION_ID IN (
+            SELECT d.ID FROM hcrp_report_template AS t
+                                 INNER JOIN hcrp_dimension AS d ON d.TEMPLATE_ID = t.ID
+            WHERE t.ID = #{_tempId, jdbcType=VARCHAR}
+        )
+        ;
+    </delete>
+</mapper>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hcis.hcrp.report.template.mapper.RtcTableFieldMapper" >
+  <resultMap id="BaseResultMap" type="com.hcis.hcrp.report.template.entity.RtcTableField" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="RTC_TABLE_ID" property="rtcTableId" jdbcType="VARCHAR" />
+    <result column="TABLE_TYPE" property="tableType" jdbcType="INTEGER" />
+    <result column="FIELD" property="field" jdbcType="VARCHAR" />
+    <result column="FIELD_RELEVANCE" property="fieldRelevance" jdbcType="VARCHAR" />
+    <result column="FIELD_VAL" property="fieldVal" jdbcType="VARCHAR" />
+    <result column="FIELD_SORT" property="fieldSort" jdbcType="INTEGER" />
+    <result column="KEY" property="key" jdbcType="VARCHAR" />
+    <result column="KEY_RELEVANCE" property="keyRelevance" jdbcType="VARCHAR" />
+    <result column="FIELD_SHOW_VAL" property="fieldShowVal" jdbcType="VARCHAR" />
+    <result column="KEY_SHOW_VAL" property="keyShowVal" jdbcType="VARCHAR" />
+    <result column="KEY_VAL" property="keyVal" jdbcType="VARCHAR" />
+    <result column="KEY_SORT" property="keySort" jdbcType="INTEGER" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_BY" property="updatedby" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DELETED" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="VERSION" property="version" jdbcType="BIGINT" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    ID, RTC_TABLE_ID, TABLE_TYPE, FIELD, FIELD_RELEVANCE, FIELD_VAL, FIELD_SORT, `KEY`,
+    KEY_RELEVANCE, KEY_VAL, KEY_SORT, CREATOR, CREATE_TIME, UPDATED_BY, UPDATE_TIME, 
+    IS_DELETED, VERSION, FIELD_SHOW_VAL, KEY_SHOW_VAL
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from hcrp_rtc_table_field
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from hcrp_rtc_table_field
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.hcis.hcrp.report.template.entity.RtcTableField" >
+    insert into hcrp_rtc_table_field (ID, RTC_TABLE_ID, TABLE_TYPE, 
+      FIELD, FIELD_RELEVANCE, FIELD_VAL, 
+      FIELD_SORT, `KEY`, KEY_RELEVANCE,
+      KEY_VAL, KEY_SORT, CREATOR, 
+      CREATE_TIME, UPDATED_BY, UPDATE_TIME, 
+      IS_DELETED, VERSION, FIELD_SHOW_VAL, KEY_SHOW_VAL)
+    values (#{id,jdbcType=VARCHAR}, #{rtcTableId,jdbcType=VARCHAR}, #{tableType,jdbcType=INTEGER}, 
+      #{field,jdbcType=VARCHAR}, #{fieldRelevance,jdbcType=VARCHAR}, #{fieldVal,jdbcType=VARCHAR}, 
+      #{fieldSort,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, #{keyRelevance,jdbcType=VARCHAR}, 
+      #{keyVal,jdbcType=VARCHAR}, #{keySort,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updatedby,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP},
+      #{isDeleted,jdbcType=VARCHAR}, #{version,jdbcType=BIGINT},#{fieldShowVal,jdbcType=VARCHAR}, #{keyShowVal,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.hcis.hcrp.report.template.entity.RtcTableField" >
+    insert into hcrp_rtc_table_field
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="rtcTableId != null" >
+        RTC_TABLE_ID,
+      </if>
+      <if test="tableType != null" >
+        TABLE_TYPE,
+      </if>
+      <if test="field != null" >
+        FIELD,
+      </if>
+      <if test="fieldRelevance != null" >
+        FIELD_RELEVANCE,
+      </if>
+      <if test="fieldVal != null" >
+        FIELD_VAL,
+      </if>
+      <if test="fieldSort != null" >
+        FIELD_SORT,
+      </if>
+      <if test="key != null" >
+        `KEY`,
+      </if>
+      <if test="keyRelevance != null" >
+        KEY_RELEVANCE,
+      </if>
+      <if test="keyVal != null" >
+        KEY_VAL,
+      </if>
+      <if test="keySort != null" >
+        KEY_SORT,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="fieldShowVal != null" >
+        FIELD_SHOW_VAL,
+      </if>
+      <if test="keyShowVal != null" >
+        KEY_SHOW_VAL,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updatedby != null" >
+        UPDATED_BY,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED,
+      </if>
+      <if test="version != null" >
+        VERSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="rtcTableId != null" >
+        #{rtcTableId,jdbcType=VARCHAR},
+      </if>
+      <if test="tableType != null" >
+        #{tableType,jdbcType=INTEGER},
+      </if>
+      <if test="field != null" >
+        #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldRelevance != null" >
+        #{fieldRelevance,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldVal != null" >
+        #{fieldVal,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldSort != null" >
+        #{fieldSort,jdbcType=INTEGER},
+      </if>
+      <if test="key != null" >
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="keyRelevance != null" >
+        #{keyRelevance,jdbcType=VARCHAR},
+      </if>
+      <if test="keyVal != null" >
+        #{keyVal,jdbcType=VARCHAR},
+      </if>
+      <if test="keySort != null" >
+        #{keySort,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldShowVal != null" >
+        #{fieldShowVal,jdbcType=VARCHAR},
+      </if>
+      <if test="keyShowVal != null" >
+        #{keyShowVal,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.hcis.hcrp.report.template.entity.RtcTableField" >
+    update hcrp_rtc_table_field
+    <set >
+      <if test="rtcTableId != null" >
+        RTC_TABLE_ID = #{rtcTableId,jdbcType=VARCHAR},
+      </if>
+      <if test="tableType != null" >
+        TABLE_TYPE = #{tableType,jdbcType=INTEGER},
+      </if>
+      <if test="field != null" >
+        FIELD = #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldRelevance != null" >
+        FIELD_RELEVANCE = #{fieldRelevance,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldVal != null" >
+        FIELD_VAL = #{fieldVal,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldSort != null" >
+        FIELD_SORT = #{fieldSort,jdbcType=INTEGER},
+      </if>
+      <if test="key != null" >
+        `KEY` = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="keyRelevance != null" >
+        KEY_RELEVANCE = #{keyRelevance,jdbcType=VARCHAR},
+      </if>
+      <if test="keyVal != null" >
+        KEY_VAL = #{keyVal,jdbcType=VARCHAR},
+      </if>
+      <if test="keySort != null" >
+        KEY_SORT = #{keySort,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldShowVal != null" >
+        FIELD_SHOW_VAL = #{fieldShowVal,jdbcType=VARCHAR},
+      </if>
+      <if test="keyShowVal != null" >
+        FIELD_SHOW_VAL = #{keyShowVal,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        UPDATED_BY = #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.hcis.hcrp.report.template.entity.RtcTableField" >
+    update hcrp_rtc_table_field
+    set RTC_TABLE_ID = #{rtcTableId,jdbcType=VARCHAR},
+      TABLE_TYPE = #{tableType,jdbcType=INTEGER},
+      FIELD = #{field,jdbcType=VARCHAR},
+      FIELD_RELEVANCE = #{fieldRelevance,jdbcType=VARCHAR},
+      FIELD_VAL = #{fieldVal,jdbcType=VARCHAR},
+      FIELD_SORT = #{fieldSort,jdbcType=INTEGER},
+      `KEY` = #{key,jdbcType=VARCHAR},
+      KEY_RELEVANCE = #{keyRelevance,jdbcType=VARCHAR},
+      KEY_VAL = #{keyVal,jdbcType=VARCHAR},
+      KEY_SORT = #{keySort,jdbcType=INTEGER},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      FIELD_SHOW_VAL = #{fieldShowVal,jdbcType=VARCHAR},
+      KEY_SHOW_VAL = #{keyShowVal,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedby,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      VERSION = #{version,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getIdsByTemplateId" parameterType="java.lang.String" resultType="java.lang.String">
+    SELECT
+      rta.ID as id
+    FROM
+      hcrp_report_template AS rt
+        LEFT JOIN hcrp_report_template_chapter AS tc ON tc.TEMPLATE_ID = rt.ID
+        LEFT JOIN hcrp_rtc_table AS rta ON rta.CHAPTER_ID = tc.ID
+    WHERE
+      rt.ID = #{_templateId, jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByIds" parameterType="java.util.List">
+    DELETE FROM hcrp_rtc_table_field WHERE ID IN
+    <foreach collection="list" item="id" open="(" close=")" separator=",">
+      #{id, jdbcType=VARCHAR}
+    </foreach>
+  </delete>
+
+  <delete id="deleteByTableId" parameterType="java.lang.String">
+    DELETE FROM hcrp_rtc_table_field WHERE RTC_TABLE_ID = #{_id, jdbcType=VARCHAR}
+  </delete>
+
+  <select id="selectListByTemplateId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+      rta.*
+    from
+      hcrp_report_template AS rt
+        INNER JOIN hcrp_report_template_chapter AS tc ON tc.TEMPLATE_ID = rt.ID
+        INNER JOIN hcrp_rtc_table AS rta ON rta.CHAPTER_ID = tc.ID
+    WHERE
+      rt.ID = #{_templateId, jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectBySearchParam" parameterType="searchParam" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    hcrp_rtc_table_field
+    WHERE
+    1=1
+    <if test="paramMap.type != null">
+      AND  TABLE_TYPE = #{paramMap.type, jdbcType=INTEGER}
+    </if>
+    <if test="paramMap.tableId != null and paramMap.tableId != ''">
+      AND  RTC_TABLE_ID = #{paramMap.tableId, jdbcType=VARCHAR}
+    </if>
+    order by
+    FIELD_SORT,
+    KEY_SORT
+  </select>
+
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into hcrp_rtc_table_field (ID, RTC_TABLE_ID, TABLE_TYPE,
+                                      FIELD, FIELD_RELEVANCE, FIELD_VAL,
+                                      FIELD_SORT, `KEY`, KEY_RELEVANCE,
+                                      KEY_VAL, KEY_SORT, CREATOR,
+                                      CREATE_TIME, UPDATED_BY, UPDATE_TIME,
+                                      IS_DELETED, VERSION, FIELD_SHOW_VAL, KEY_SHOW_VAL)
+    values
+   <foreach collection="list" item="tf" open="" close="" separator=",">
+     (#{tf.id,jdbcType=VARCHAR}, #{tf.rtcTableId,jdbcType=VARCHAR}, #{tf.tableType,jdbcType=INTEGER},
+     #{tf.tf,jdbcType=VARCHAR}, #{tf.fieldRelevance,jdbcType=VARCHAR}, #{tf.fieldVal,jdbcType=VARCHAR},
+     #{tf.fieldSort,jdbcType=INTEGER}, #{tf.key,jdbcType=VARCHAR}, #{tf.keyRelevance,jdbcType=VARCHAR},
+     #{tf.keyVal,jdbcType=VARCHAR}, #{tf.keySort,jdbcType=INTEGER}, #{tf.creator,jdbcType=VARCHAR},
+     #{tf.createTime,jdbcType=TIMESTAMP}, #{tf.updatedby,jdbcType=VARCHAR}, #{tf.updateTime,jdbcType=TIMESTAMP},
+     #{tf.isDeleted,jdbcType=VARCHAR}, #{tf.version,jdbcType=BIGINT},#{tf.fieldShowVal,jdbcType=VARCHAR}, #{tf.keyShowVal,jdbcType=VARCHAR})
+   </foreach>
+
+  </insert>
+
+  <select id="selectByTableId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+        <include refid="Base_Column_List"/>
+    from
+    hcrp_rtc_table_field
+    where
+    RTC_TABLE_ID = #{_tableId, jdbcType=VARCHAR}
+    order by
+    FIELD_SORT,KEY_SORT
+  </select>
+</mapper>

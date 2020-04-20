@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<models>
+
+	<!-- 人才、学员 -->
+	<model id="studentUserModel" class="com.hcis.ipanther.common.user.excelmodel.UserModel" titleRownum="2" maxColnum="31">
+		<property name="realName" column="1" excelTitleName="姓名" dataType="String" maxLength="300" required="true"  fixity="" codeTableName="" default=""/>
+		<property name="sex" column="2" excelTitleName="性别" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="userName" column="3" excelTitleName="用户名/账号/学号" dataType="String" maxLength="300" required="true"  fixity="" codeTableName="" default=""/>
+		<property name="userType" column="4" excelTitleName="人才分类" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="politicsRole" column="5" excelTitleName="政治面貌" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="paperworkType" column="6" excelTitleName="证件类型" dataType="String" maxLength="300" required="true"  fixity="" codeTableName="" default=""/>
+		<property name="paperworkNo" column="7" excelTitleName="证件号" dataType="String" maxLength="300" required="true"  fixity="" codeTableName="" default=""/>
+		<property name="bornDate" column="8" excelTitleName="出生日期" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="workDate_" column="9" excelTitleName="参加工作时间" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="job" column="10" excelTitleName="职务" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="expertType" column="11" excelTitleName="专家类别" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="expertLevel" column="12" excelTitleName="专家级别" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="researchField" column="13" excelTitleName="研究领域" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="researchSpecial" column="14" excelTitleName="研究专长" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="highDiploma" column="15" excelTitleName="学历" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="highSubject" column="16" excelTitleName="所学专业" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="highDegree" column="17" excelTitleName="学位" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="highDegreeUnit" column="18" excelTitleName="授予学位单位名称" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="highDegreeDt_" column="19" excelTitleName="获学位日期" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="highDt_" column="20" excelTitleName="毕业时间" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="highCollege" column="21" excelTitleName="毕肄业学校或单位" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="officePhone" column="22" excelTitleName="办公电话" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="mobilePhone" column="23" excelTitleName="移动电话" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="email" column="24" excelTitleName="电子信箱" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="foreignLanguages" column="25" excelTitleName="外国语种" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="foreignDegree" column="26" excelTitleName="外国语种熟练程度" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="computerLevel" column="27" excelTitleName="计算机水平" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="proName" column="28" excelTitleName="最高专业技术资格名称" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="proDt_" column="29" excelTitleName="评定日期" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="proJob" column="30" excelTitleName="现聘专业技术职务" dataType="String" maxLength="300" required="false"  fixity="" codeTableName="" default=""/>
+		<property name="introduce" column="31" excelTitleName="个人简介" dataType="String" maxLength="500" required="false"  fixity="" codeTableName="" default=""/>
+	</model>
+
+	<!-- 专利导入 -->
+	<model id="patentModel" class="com.hcis.hcrp.patent.excelModel.PatentModel" titleRownum="3" maxColnum="61">
+		<property name="number" column="0" excelTitleName="序号" dataType="Integer" maxLength="10" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patentName" column="1" excelTitleName="专利名称" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="claimsQuantity" column="2" excelTitleName="权利要求项数" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="independentClaimsQuantity" column="3" excelTitleName="独立权利要求项数" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="pdfFullTextQuantity" column="4" excelTitleName="PDF全文页数" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="appNumber" column="5" excelTitleName="申请号" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="appDate" column="6" excelTitleName="申请日" dataType="Date" maxLength="300" required=""  fixity="" codeTableName="" default="null"/>
+		<property name="pubDate" column="7" excelTitleName="公开日" dataType="Date" maxLength="300" required=""  fixity="" codeTableName="" default="null"/>
+		<property name="firstPubDate" column="8" excelTitleName="首次公开日" dataType="Date" maxLength="300" required=""  fixity="" codeTableName="" default="null"/>
+		<property name="country" column="9" excelTitleName="国家/地区" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patentType" column="10" excelTitleName="专利类型" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="grantDate" column="10" excelTitleName="授权日" dataType="Date" maxLength="300" required=""  fixity="" codeTableName="" default="null"/>
+		<property name="expireDate" column="12" excelTitleName="失效日" dataType="Date" maxLength="300" required=""  fixity="" codeTableName="" default="null"/>
+		<property name="priority" column="13" excelTitleName="优先权" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="firstPriorityDate" column="14" excelTitleName="最早优先权日" dataType="Date" maxLength="300" required=""  fixity="" codeTableName="" default="null"/>
+		<property name="iapp" column="15" excelTitleName="国际申请" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="ipub" column="16" excelTitleName="国际公布" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="den" column="17" excelTitleName="进入国家阶段日" dataType="Date" maxLength="300" required=""  fixity="" codeTableName="" default="null"/>
+		<property name="application" column="18" excelTitleName="申请人" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="applicationArea" column="19" excelTitleName="申请人归属地" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="applicationAddress" column="20" excelTitleName="申请人地址" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="applicationType" column="21" excelTitleName="申请人类型" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="applicationQuantity" column="22" excelTitleName="申请人数量" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patentee" column="23" excelTitleName="专利权人" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patenteeArea" column="24" excelTitleName="专利权人归属地" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patenteeAddress" column="25" excelTitleName="专利权人地址" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patenteeType" column="26" excelTitleName="专利权人类型" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patenteeQuantity" column="27" excelTitleName="专利权人数量" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="inventor" column="28" excelTitleName="发明人" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="inventors" column="29" excelTitleName="发明人数量" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="censor" column="30" excelTitleName="审查员" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="agentName" column="31" excelTitleName="代理人" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="agencyName" column="32" excelTitleName="代理机构" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="ipc" column="33" excelTitleName="IPC分类号" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="mainIpc" column="34" excelTitleName="主IPC分类号" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="ipcQuantity" column="35" excelTitleName="IPC分类号数量" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="cpc" column="36" excelTitleName="CPC分类号" dataType="String" maxLength="1000" required=""  fixity="" codeTableName="" default=""/>
+		<property name="mainCpc" column="37" excelTitleName="主CPC分类号" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="cpcQuantity" column="38" excelTitleName="CPC分类号数量" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="designClass" column="39" excelTitleName="外观设计分类号" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="legalStatus" column="40" excelTitleName="法律效力" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="isGrant" column="41" excelTitleName="是否曾经授权" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="pkpuStatus" column="42" excelTitleName="公知公用状态" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="survivalPeriod" column="43" excelTitleName="存活期" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="expectedResidualLife" column="44" excelTitleName="预期剩余寿命" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="transferStatus" column="45" excelTitleName="转让状态" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="licenseStatus" column="46" excelTitleName="许可状态" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="pledgeStatus" column="47" excelTitleName="质押状态" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="reexamInvalidStatus" column="48" excelTitleName="复审/无效状态" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="lawsuitStatus" column="49" excelTitleName="诉讼状态" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="basicPatentFamily" column="50" excelTitleName="基本专利族" dataType="String" maxLength="1000" required=""  fixity="" codeTableName="" default=""/>
+		<property name="basicPatentFamilyQuantity" column="51" excelTitleName="基本专利族专利数量" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="extendedPatentFamily" column="52" excelTitleName="扩展专利族" dataType="String" maxLength="1000" required=""  fixity="" codeTableName="" default=""/>
+		<property name="extendedPatentFamilyQuantity" column="53" excelTitleName="扩展专利族专利数量" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patentCitation" column="54" excelTitleName="本专利引用" dataType="String" maxLength="5000" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patentCitationQuantity" column="55" excelTitleName="本专利引用数量" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patentCited" column="56" excelTitleName="本专利被引" dataType="String" maxLength="11000" required=""  fixity="" codeTableName="" default=""/>
+		<property name="patentCitedQuantity" column="57" excelTitleName="本专利被引用数量" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="overallMerit" column="58" excelTitleName="综合评价" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="technicalIndex" column="59" excelTitleName="技术指标" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="claimsIndex" column="60" excelTitleName="权利指标" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+		<property name="marketIndex" column="61" excelTitleName="市场指标" dataType="String" maxLength="300" required=""  fixity="" codeTableName="" default=""/>
+	</model>
+</models>

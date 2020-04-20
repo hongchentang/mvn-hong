@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hcis.hcrp.report.template.mapper.HcrpDimensionMapper" >
+  <resultMap id="BaseResultMap" type="com.hcis.hcrp.report.template.entity.HcrpDimension" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TEMPLATE_ID" property="templateId" jdbcType="VARCHAR" />
+    <result column="TABLE_ID" property="tableId" jdbcType="VARCHAR" />
+    <result column="DIMENSION_NAME" property="dimensionName" jdbcType="VARCHAR" />
+    <result column="DIMENSION_STAIR" property="dimensionStair" jdbcType="VARCHAR" />
+    <result column="DIMENSION_SECOND" property="dimensionSecond" jdbcType="VARCHAR" />
+    <result column="SORT_ON" property="sortOn" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="INTEGER" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_BY" property="updatedby" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DELETED" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="VERSION" property="version" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.hcis.hcrp.report.template.entity.HcrpDimension" extends="BaseResultMap" >
+    <result column="DIMENSION_HTML" property="dimensionHtml" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TEMPLATE_ID, TABLE_ID, DIMENSION_NAME, DIMENSION_STAIR, DIMENSION_SECOND, SORT_ON, TYPE,
+    CREATOR, CREATE_TIME, UPDATED_BY, UPDATE_TIME, IS_DELETED, VERSION
+  </sql>
+  <sql id="Blob_Column_List" >
+    DIMENSION_HTML
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from hcrp_dimension
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from hcrp_dimension
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hcis.hcrp.report.template.entity.HcrpDimension" >
+    insert into hcrp_dimension (ID, TEMPLATE_ID, TABLE_ID, 
+      DIMENSION_NAME, DIMENSION_STAIR, DIMENSION_SECOND, 
+      SORT_ON, TYPE, CREATOR, CREATE_TIME,
+      UPDATED_BY, UPDATE_TIME, IS_DELETED, 
+      VERSION, DIMENSION_HTML)
+    values (#{id,jdbcType=VARCHAR}, #{templateId,jdbcType=VARCHAR}, #{tableId,jdbcType=VARCHAR}, 
+      #{dimensionName,jdbcType=VARCHAR}, #{dimensionStair,jdbcType=VARCHAR}, #{dimensionSecond,jdbcType=VARCHAR}, 
+      #{sortOn,jdbcType=INTEGER},#{type,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+      #{updatedby,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=VARCHAR},
+      #{version,jdbcType=BIGINT}, #{dimensionHtml,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hcis.hcrp.report.template.entity.HcrpDimension" >
+    insert into hcrp_dimension
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="templateId != null" >
+        TEMPLATE_ID,
+      </if>
+      <if test="tableId != null" >
+        TABLE_ID,
+      </if>
+      <if test="dimensionName != null" >
+        DIMENSION_NAME,
+      </if>
+      <if test="dimensionStair != null" >
+        DIMENSION_STAIR,
+      </if>
+      <if test="dimensionSecond != null" >
+        DIMENSION_SECOND,
+      </if>
+      <if test="sortOn != null" >
+        SORT_ON,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updatedby != null" >
+        UPDATED_BY,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED,
+      </if>
+      <if test="version != null" >
+        VERSION,
+      </if>
+      <if test="dimensionHtml != null" >
+        DIMENSION_HTML,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="templateId != null" >
+        #{templateId,jdbcType=VARCHAR},
+      </if>
+      <if test="tableId != null" >
+        #{tableId,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionName != null" >
+        #{dimensionName,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionStair != null" >
+        #{dimensionStair,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionSecond != null" >
+        #{dimensionSecond,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOn != null" >
+        #{sortOn,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="dimensionHtml != null" >
+        #{dimensionHtml,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hcis.hcrp.report.template.entity.HcrpDimension" >
+    update hcrp_dimension
+    <set >
+      <if test="id != null and id != ''">
+        ID = #{id, jdbcType=VARCHAR},
+      </if>
+      <if test="templateId != null" >
+        TEMPLATE_ID = #{templateId,jdbcType=VARCHAR},
+      </if>
+      <if test="tableId != null" >
+        TABLE_ID = #{tableId,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionName != null" >
+        DIMENSION_NAME = #{dimensionName,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionStair != null" >
+        DIMENSION_STAIR = #{dimensionStair,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionSecond != null" >
+        DIMENSION_SECOND = #{dimensionSecond,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOn != null" >
+        SORT_ON = #{sortOn,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=INTEGER},
+      </if>
+
+      <if test="creator != null" >
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        UPDATED_BY = #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="dimensionHtml != null" >
+        DIMENSION_HTML = #{dimensionHtml,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.hcis.hcrp.report.template.entity.HcrpDimension" >
+    update hcrp_dimension
+    set TEMPLATE_ID = #{templateId,jdbcType=VARCHAR},
+      TABLE_ID = #{tableId,jdbcType=VARCHAR},
+      DIMENSION_NAME = #{dimensionName,jdbcType=VARCHAR},
+      DIMENSION_STAIR = #{dimensionStair,jdbcType=VARCHAR},
+      DIMENSION_SECOND = #{dimensionSecond,jdbcType=VARCHAR},
+      SORT_ON = #{sortOn,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=INTEGER},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedby,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      VERSION = #{version,jdbcType=BIGINT},
+      DIMENSION_HTML = #{dimensionHtml,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hcis.hcrp.report.template.entity.HcrpDimension" >
+    update hcrp_dimension
+    set TEMPLATE_ID = #{templateId,jdbcType=VARCHAR},
+      TABLE_ID = #{tableId,jdbcType=VARCHAR},
+      DIMENSION_NAME = #{dimensionName,jdbcType=VARCHAR},
+      DIMENSION_STAIR = #{dimensionStair,jdbcType=VARCHAR},
+      DIMENSION_SECOND = #{dimensionSecond,jdbcType=VARCHAR},
+      SORT_ON = #{sortOn,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=INTEGER},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedby,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      VERSION = #{version,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="listByTemplateId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+    select
+      d.*,
+      t.TABLE_TYPE as tableType
+    from
+    hcrp_dimension as d
+    LEFT JOIN hcrp_rtc_table AS t ON t.ID = d.TABLE_ID
+    where
+        d.IS_DELETED = 'N'
+    and
+    d.TEMPLATE_ID = #{_tempId, jdbcType=VARCHAR}
+    ORDER BY SORT_ON
+  </select>
+
+  <insert id="insertBatch" parameterType="java.util.List">
+    insert into hcrp_dimension (ID, TEMPLATE_ID, TABLE_ID,
+                                DIMENSION_NAME, DIMENSION_STAIR, DIMENSION_SECOND,
+                                SORT_ON, TYPE, CREATOR, CREATE_TIME,
+                                UPDATED_BY, UPDATE_TIME, IS_DELETED,
+                                VERSION, DIMENSION_HTML)
+    values
+   <foreach collection="list" item="dimension" separator=",">
+     (#{dimension.id,jdbcType=VARCHAR}, #{dimension.templateId,jdbcType=VARCHAR}, #{dimension.tableId,jdbcType=VARCHAR},
+     #{dimension.dimensionName,jdbcType=VARCHAR}, #{dimension.dimensionStair,jdbcType=VARCHAR}, #{dimension.dimensionSecond,jdbcType=VARCHAR},
+     #{dimension.sortOn,jdbcType=INTEGER},#{dimension.type,jdbcType=INTEGER}, #{dimension.creator,jdbcType=VARCHAR}, #{dimension.createTime,jdbcType=TIMESTAMP},
+     #{dimension.updatedby,jdbcType=VARCHAR}, #{dimension.updateTime,jdbcType=TIMESTAMP}, #{dimension.isDeleted,jdbcType=VARCHAR},
+     #{dimension.version,jdbcType=BIGINT}, #{dimension.dimensionHtml,jdbcType=LONGVARCHAR})
+   </foreach>
+  </insert>
+
+  <delete id="deleteByTempId" parameterType="java.lang.String">
+    DELETE FROM hcrp_dimension WHERE TEMPLATE_ID = #{_tempId, jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteSecByTempId" parameterType="java.lang.String">
+    DELETE FROM hcrp_dimension WHERE TEMPLATE_ID = #{_tempId, jdbcType=VARCHAR} AND TYPE = 1
+  </delete>
+
+  <update id="updateDimensionTemp" parameterType="searchParam">
+    update hcrp_dimension set TEMPLATE_ID = #{paramMap.tempId, jdbcType=VARCHAR} where TEMPLATE_ID = #{paramMap.shadowTempId, jdbcType=VARCHAR}
+  </update>
+</mapper>

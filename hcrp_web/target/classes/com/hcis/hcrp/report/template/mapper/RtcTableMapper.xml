@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hcis.hcrp.report.template.mapper.RtcTableMapper" >
+  <resultMap id="BaseResultMap" type="com.hcis.hcrp.report.template.entity.RtcTable" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TABLE_NAME" property="tableName" jdbcType="VARCHAR" />
+    <result column="TABLE_TYPE" property="tableType" jdbcType="INTEGER" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_BY" property="updatedby" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DELETED" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="VERSION" property="version" jdbcType="BIGINT" />
+  </resultMap>
+
+  <resultMap id="idResult" type="java.lang.String" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    ID, `TABLE_NAME`, TABLE_TYPE, CREATOR, CREATE_TIME,
+    UPDATED_BY, UPDATE_TIME, IS_DELETED, VERSION
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from hcrp_rtc_table
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from hcrp_rtc_table
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.hcis.hcrp.report.template.entity.RtcTable" >
+    insert into hcrp_rtc_table (ID, `TABLE_NAME`,
+      TABLE_TYPE, CREATOR,
+      CREATE_TIME, UPDATED_BY, UPDATE_TIME, 
+      IS_DELETED, VERSION)
+    values (#{id,jdbcType=VARCHAR},  #{tableName,jdbcType=VARCHAR},
+      #{tableType,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP}, #{updatedby,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=VARCHAR}, #{version,jdbcType=BIGINT})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.hcis.hcrp.report.template.entity.RtcTable" >
+    insert into hcrp_rtc_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="chapterTableName != null" >
+        `TABLE_NAME`,
+      </if>
+      <if test="tableType != null" >
+        TABLE_TYPE,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updatedby != null" >
+        UPDATED_BY,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED,
+      </if>
+      <if test="version != null" >
+        VERSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null" >
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableType != null" >
+        #{tableType,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.hcis.hcrp.report.template.entity.RtcTable" >
+    update hcrp_rtc_table
+    <set >
+      <if test="tableName != null" >
+        `TABLE_NAME` = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableType != null" >
+        TABLE_TYPE = #{tableType,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        UPDATED_BY = #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.hcis.hcrp.report.template.entity.RtcTable" >
+    update hcrp_rtc_table
+    set
+      `TABLE_NAME` = #{tableName,jdbcType=VARCHAR},
+      TABLE_TYPE = #{tableType,jdbcType=INTEGER},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedby,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      VERSION = #{version,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <delete id="deleteByIds" parameterType="java.util.List">
+    DELETE FROM hcrp_rtc_table WHERE ID IN
+    <foreach collection="list" item="id" open="(" close=")" separator=",">
+        #{id, jdbcType=VARCHAR}
+    </foreach>
+  </delete>
+
+  <select id="selectListByTemplateId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+        rta.*
+    from
+    hcrp_report_template AS rt
+    INNER JOIN hcrp_dimension AS hd ON hd.TEMPLATE_ID = rt.ID
+    INNER JOIN hcrp_rtc_table AS rta ON rta.ID = gd.TABLE_ID
+    WHERE
+    rt.ID = #{_templateId, jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectBySearchParam" parameterType="searchParam" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM
+    hcrp_rtc_table
+    WHERE
+    IS_DELETED = 'N'
+    <if test="paramMap.type != null">
+      AND  TABLE_TYPE = #{paramMap.type, jdbcType=INTEGER}
+    </if>
+    ORDER BY CREATE_TIME
+  </select>
+
+  <select id="count" resultType="java.lang.Integer" parameterType="searchParam">
+    select
+        count(1)
+    from
+      hcrp_rtc_table
+    where
+      IS_DELETED = 'N'
+    <if test="paramMap.type != null">
+      AND  TABLE_TYPE = #{paramMap.type, jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <delete id="deleteByLogic" parameterType="com.hcis.hcrp.report.template.entity.RtcTable">
+    update hcrp_rtc_table
+    set IS_DELETED='Y',
+        UPDATED_BY=#{updatedby,jdbcType=VARCHAR},
+        UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},
+        VERSION = VERSION+1
+    WHERE ID=#{id,jdbcType=VARCHAR}
+  </delete>
+
+</mapper>

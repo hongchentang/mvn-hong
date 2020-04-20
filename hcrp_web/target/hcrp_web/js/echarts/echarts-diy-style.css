@@ -1,0 +1,7 @@
+@charset "UTF-8";
+/* CSS */
+.chart_table_td_input{
+  border: 0;
+  background-color:transparent;
+  width: 100%;
+}

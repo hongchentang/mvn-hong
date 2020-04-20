@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hcis.hcrp.patent.mapper.TempPatentMapper" >
+  <resultMap id="BaseResultMap" type="com.hcis.hcrp.patent.entity.TempPatent" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="PATENT_NAME" property="patentName" jdbcType="VARCHAR" />
+   <!-- <result column="PATENT_CHINESE_NAME" property="patentChineseName" jdbcType="VARCHAR" />
+    <result column="PATENT_ENGLISH_NAME" property="patentEnglishName" jdbcType="VARCHAR" />
+    <result column="ABS" property="abs" jdbcType="VARCHAR" />
+    <result column="ABS_CHINESE" property="absChinese" jdbcType="VARCHAR" />
+    <result column="ABS_ENGLISH" property="absEnglish" jdbcType="VARCHAR" />
+    <result column="CLAIMS_CL" property="claimsCl" jdbcType="VARCHAR" />-->
+    <result column="CLAIMS_QUANTITY" property="claimsQuantity" jdbcType="VARCHAR" />
+    <result column="INDEPENDENT_CLAIMS_QUANTITY" property="independentClaimsQuantity" jdbcType="VARCHAR" />
+    <result column="PDF_FULL_TEXT_QUANTITY" property="pdfFullTextQuantity" jdbcType="VARCHAR" />
+  <!--  <result column="INDEX_TIF" property="indexTif" jdbcType="VARCHAR" />-->
+    <result column="APP_NUMBER" property="appNumber" jdbcType="VARCHAR" />
+    <result column="APP_DATE" property="appDate" jdbcType="VARCHAR" />
+<!--    <result column="PUB_NUMBER" property="pubNumber" jdbcType="VARCHAR" />-->
+    <result column="PUB_DATE" property="pubDate" jdbcType="VARCHAR" />
+    <result column="FIRST_PUB_DATE" property="firstPubDate" jdbcType="VARCHAR" />
+    <result column="COUNTRY" property="country" jdbcType="VARCHAR" />
+    <result column="PATENT_TYPE" property="patentType" jdbcType="VARCHAR" />
+    <result column="GRANT_DATE" property="grantDate" jdbcType="VARCHAR" />
+    <result column="EXPIRE_DATE" property="expireDate" jdbcType="VARCHAR" />
+    <result column="PRIORITY" property="priority" jdbcType="VARCHAR" />
+    <result column="FIRST_PRIORITY_DATE" property="firstPriorityDate" jdbcType="VARCHAR" />
+    <result column="IAPP" property="iapp" jdbcType="VARCHAR" />
+    <result column="IPUB" property="ipub" jdbcType="VARCHAR" />
+    <result column="DEN" property="den" jdbcType="VARCHAR" />
+    <result column="APPLICATION" property="application" jdbcType="VARCHAR" />
+    <result column="APPLICATION_AREA" property="applicationArea" jdbcType="VARCHAR" />
+    <result column="APPLICATION_ADDRESS" property="applicationAddress" jdbcType="VARCHAR" />
+    <result column="APPLICATION_TYPE" property="applicationType" jdbcType="VARCHAR" />
+    <result column="APPLICATION_QUANTITY" property="applicationQuantity" jdbcType="VARCHAR" />
+    <result column="PATENTEE" property="patentee" jdbcType="VARCHAR" />
+    <result column="PATENTEE_AREA" property="patenteeArea" jdbcType="VARCHAR" />
+    <result column="PATENTEE_ADDRESS" property="patenteeAddress" jdbcType="VARCHAR" />
+    <result column="PATENTEE_TYPE" property="patenteeType" jdbcType="VARCHAR" />
+    <result column="PATENTEE_QUANTITY" property="patenteeQuantity" jdbcType="VARCHAR" />
+    <result column="INVENTOR" property="inventor" jdbcType="VARCHAR" />
+    <result column="INVENTORS" property="inventors" jdbcType="VARCHAR" />
+    <result column="CENSOR" property="censor" jdbcType="VARCHAR" />
+    <result column="AGENT_NAME" property="agentName" jdbcType="VARCHAR" />
+    <result column="AGENCY_NAME" property="agencyName" jdbcType="VARCHAR" />
+    <result column="IPC" property="ipc" jdbcType="VARCHAR" />
+    <result column="MAIN_IPC" property="mainIpc" jdbcType="VARCHAR" />
+    <result column="IPC_QUANTITY" property="ipcQuantity" jdbcType="VARCHAR" />
+    <result column="CPC" property="cpc" jdbcType="VARCHAR" />
+    <result column="MAIN_CPC" property="mainCpc" jdbcType="VARCHAR" />
+    <result column="CPC_QUANTITY" property="cpcQuantity" jdbcType="VARCHAR" />
+    <result column="DESIGN_CLASS" property="designClass" jdbcType="VARCHAR" />
+    <result column="LEGAL_STATUS" property="legalStatus" jdbcType="VARCHAR" />
+    <result column="IS_GRANT" property="isGrant" jdbcType="BIT" />
+    <result column="PKPU_STATUS" property="pkpuStatus" jdbcType="VARCHAR" />
+    <result column="SURVIVAL_PERIOD" property="survivalPeriod" jdbcType="VARCHAR" />
+    <result column="EXPECTED_RESIDUAL_LIFE" property="expectedResidualLife" jdbcType="VARCHAR" />
+    <result column="TRANSFER_STATUS" property="transferStatus" jdbcType="VARCHAR" />
+    <result column="LICENSE_STATUS" property="licenseStatus" jdbcType="VARCHAR" />
+    <result column="PLEDGE_STATUS" property="pledgeStatus" jdbcType="VARCHAR" />
+    <result column="REEXAM_INVALID_STATUS" property="reexamInvalidStatus" jdbcType="VARCHAR" />
+    <result column="LAWSUIT_STATUS" property="lawsuitStatus" jdbcType="VARCHAR" />
+    <result column="BASIC_PATENT_FAMILY" property="basicPatentFamily" jdbcType="VARCHAR" />
+    <result column="BASIC_PATENT_FAMILY_QUANTITY" property="basicPatentFamilyQuantity" jdbcType="VARCHAR" />
+    <result column="EXTENDED_PATENT_FAMILY" property="extendedPatentFamily" jdbcType="VARCHAR" />
+    <result column="EXTENDED_PATENT_FAMILY_QUANTITY" property="extendedPatentFamilyQuantity" jdbcType="VARCHAR" />
+    <result column="PATENT_CITATION" property="patentCitation" jdbcType="VARCHAR" />
+    <result column="PATENT_CITATION_QUANTITY" property="patentCitationQuantity" jdbcType="VARCHAR" />
+    <result column="PATENT_CITED" property="patentCited" jdbcType="VARCHAR" />
+    <result column="PATENT_CITED_QUANTITY" property="patentCitedQuantity" jdbcType="VARCHAR" />
+    <result column="OVERALL_MERIT" property="overallMerit" jdbcType="VARCHAR" />
+    <result column="TECHNICAL_INDEX" property="technicalIndex" jdbcType="VARCHAR" />
+    <result column="CLAIMS_INDEX" property="claimsIndex" jdbcType="VARCHAR" />
+    <result column="MARKET_INDEX" property="marketIndex" jdbcType="VARCHAR" />
+    <result column="CHAPTER_ID" property="chapterId" jdbcType="VARCHAR" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATEDBY" property="updatedby" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DELETED" property="isDeleted" jdbcType="CHAR" />
+    <result column="VERSION" property="version" jdbcType="BIGINT" />
+
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    ID, PATENT_NAME, CLAIMS_QUANTITY, INDEPENDENT_CLAIMS_QUANTITY, PDF_FULL_TEXT_QUANTITY,
+     APP_NUMBER, APP_DATE, PUB_DATE, FIRST_PUB_DATE, COUNTRY, PATENT_TYPE,
+    GRANT_DATE, EXPIRE_DATE, PRIORITY, FIRST_PRIORITY_DATE, IAPP, IPUB, DEN, APPLICATION, 
+    APPLICATION_AREA, APPLICATION_ADDRESS, APPLICATION_TYPE, APPLICATION_QUANTITY, PATENTEE, 
+    PATENTEE_AREA, PATENTEE_ADDRESS, PATENTEE_TYPE, PATENTEE_QUANTITY, INVENTOR, INVENTORS, 
+    CENSOR, AGENT_NAME, AGENCY_NAME, IPC, MAIN_IPC, IPC_QUANTITY, CPC, MAIN_CPC, CPC_QUANTITY, 
+    DESIGN_CLASS, LEGAL_STATUS, IS_GRANT, PKPU_STATUS, SURVIVAL_PERIOD, EXPECTED_RESIDUAL_LIFE, 
+    TRANSFER_STATUS, LICENSE_STATUS, PLEDGE_STATUS, REEXAM_INVALID_STATUS, LAWSUIT_STATUS, 
+    BASIC_PATENT_FAMILY, BASIC_PATENT_FAMILY_QUANTITY, EXTENDED_PATENT_FAMILY, EXTENDED_PATENT_FAMILY_QUANTITY, 
+    PATENT_CITATION, PATENT_CITATION_QUANTITY, PATENT_CITED, PATENT_CITED_QUANTITY, OVERALL_MERIT, 
+    TECHNICAL_INDEX, CLAIMS_INDEX, MARKET_INDEX, CREATOR, CREATE_TIME, UPDATEDBY, UPDATE_TIME,IS_DELETED, VERSION
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from temp_patent
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from temp_patent
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.hcis.hcrp.patent.entity.TempPatent" >
+    insert into temp_patent (ID, PATENT_NAME, CLAIMS_QUANTITY,
+      INDEPENDENT_CLAIMS_QUANTITY, PDF_FULL_TEXT_QUANTITY, 
+      APP_NUMBER, APP_DATE, PUB_DATE, FIRST_PUB_DATE,
+      COUNTRY, PATENT_TYPE, GRANT_DATE, 
+      EXPIRE_DATE, PRIORITY, FIRST_PRIORITY_DATE, 
+      IAPP, IPUB, DEN, 
+      APPLICATION, APPLICATION_AREA, APPLICATION_ADDRESS, 
+      APPLICATION_TYPE, APPLICATION_QUANTITY, PATENTEE, 
+      PATENTEE_AREA, PATENTEE_ADDRESS, PATENTEE_TYPE, 
+      PATENTEE_QUANTITY, INVENTOR, INVENTORS, 
+      CENSOR, AGENT_NAME, AGENCY_NAME, 
+      IPC, MAIN_IPC, IPC_QUANTITY, 
+      CPC, MAIN_CPC, CPC_QUANTITY, 
+      DESIGN_CLASS, LEGAL_STATUS, IS_GRANT, 
+      PKPU_STATUS, SURVIVAL_PERIOD, EXPECTED_RESIDUAL_LIFE, 
+      TRANSFER_STATUS, LICENSE_STATUS, PLEDGE_STATUS, 
+      REEXAM_INVALID_STATUS, LAWSUIT_STATUS, BASIC_PATENT_FAMILY, 
+      BASIC_PATENT_FAMILY_QUANTITY, EXTENDED_PATENT_FAMILY, 
+      EXTENDED_PATENT_FAMILY_QUANTITY, PATENT_CITATION, 
+      PATENT_CITATION_QUANTITY, PATENT_CITED, PATENT_CITED_QUANTITY, 
+      OVERALL_MERIT, TECHNICAL_INDEX, CLAIMS_INDEX, 
+      MARKET_INDEX,CREATOR, CREATE_TIME, UPDATEDBY, UPDATE_TIME, IS_DELETED, VERSION )
+    values (#{id,jdbcType=VARCHAR}, #{patentName,jdbcType=VARCHAR},#{claimsQuantity,jdbcType=VARCHAR},
+      #{independentClaimsQuantity,jdbcType=VARCHAR}, #{pdfFullTextQuantity,jdbcType=VARCHAR}, 
+      #{appNumber,jdbcType=VARCHAR}, #{appDate,jdbcType=VARCHAR}, #{pubDate,jdbcType=VARCHAR}, #{firstPubDate,jdbcType=VARCHAR},
+      #{country,jdbcType=VARCHAR}, #{patentType,jdbcType=VARCHAR}, #{grantDate,jdbcType=VARCHAR},
+      #{expireDate,jdbcType=VARCHAR}, #{priority,jdbcType=VARCHAR}, #{firstPriorityDate,jdbcType=VARCHAR},
+      #{iapp,jdbcType=VARCHAR}, #{ipub,jdbcType=VARCHAR}, #{den,jdbcType=VARCHAR},
+      #{application,jdbcType=VARCHAR}, #{applicationArea,jdbcType=VARCHAR}, #{applicationAddress,jdbcType=VARCHAR}, 
+      #{applicationType,jdbcType=VARCHAR}, #{applicationQuantity,jdbcType=VARCHAR}, #{patentee,jdbcType=VARCHAR},
+      #{patenteeArea,jdbcType=VARCHAR}, #{patenteeAddress,jdbcType=VARCHAR}, #{patenteeType,jdbcType=VARCHAR},
+      #{patenteeQuantity,jdbcType=VARCHAR}, #{inventor,jdbcType=VARCHAR}, #{inventors,jdbcType=VARCHAR}, 
+      #{censor,jdbcType=VARCHAR}, #{agentName,jdbcType=VARCHAR}, #{agencyName,jdbcType=VARCHAR}, 
+      #{ipc,jdbcType=VARCHAR}, #{mainIpc,jdbcType=VARCHAR}, #{ipcQuantity,jdbcType=VARCHAR}, 
+      #{cpc,jdbcType=VARCHAR}, #{mainCpc,jdbcType=VARCHAR}, #{cpcQuantity,jdbcType=VARCHAR}, 
+      #{designClass,jdbcType=VARCHAR}, #{legalStatus,jdbcType=VARCHAR}, #{isGrant,jdbcType=BIT},
+      #{pkpuStatus,jdbcType=VARCHAR}, #{survivalPeriod,jdbcType=VARCHAR}, #{expectedResidualLife,jdbcType=VARCHAR},
+      #{transferStatus,jdbcType=VARCHAR}, #{licenseStatus,jdbcType=VARCHAR}, #{pledgeStatus,jdbcType=VARCHAR},
+      #{reexamInvalidStatus,jdbcType=VARCHAR}, #{lawsuitStatus,jdbcType=VARCHAR}, #{basicPatentFamily,jdbcType=VARCHAR},
+      #{basicPatentFamilyQuantity,jdbcType=VARCHAR}, #{extendedPatentFamily,jdbcType=VARCHAR}, 
+      #{extendedPatentFamilyQuantity,jdbcType=VARCHAR}, #{patentCitation,jdbcType=VARCHAR}, 
+      #{patentCitationQuantity,jdbcType=VARCHAR}, #{patentCited,jdbcType=VARCHAR}, #{patentCitedQuantity,jdbcType=VARCHAR}, 
+      #{overallMerit,jdbcType=VARCHAR}, #{technicalIndex,jdbcType=VARCHAR}, #{claimsIndex,jdbcType=VARCHAR}, 
+      #{marketIndex,jdbcType=VARCHAR},#{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updatedby,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=CHAR}, #{version,jdbcType=BIGINT})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.hcis.hcrp.patent.entity.TempPatent" >
+    insert into temp_patent
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="patentName != null" >
+        PATENT_NAME,
+      </if>
+
+      <if test="claimsQuantity != null" >
+        CLAIMS_QUANTITY,
+      </if>
+      <if test="independentClaimsQuantity != null" >
+        INDEPENDENT_CLAIMS_QUANTITY,
+      </if>
+      <if test="pdfFullTextQuantity != null" >
+        PDF_FULL_TEXT_QUANTITY,
+      </if>
+
+      <if test="appNumber != null" >
+        APP_NUMBER,
+      </if>
+      <if test="appDate != null" >
+        APP_DATE,
+      </if>
+
+      <if test="pubDate != null" >
+        PUB_DATE,
+      </if>
+      <if test="firstPubDate != null" >
+        FIRST_PUB_DATE,
+      </if>
+      <if test="country != null" >
+        COUNTRY,
+      </if>
+      <if test="patentType != null" >
+        PATENT_TYPE,
+      </if>
+      <if test="grantDate != null" >
+        GRANT_DATE,
+      </if>
+      <if test="expireDate != null" >
+        EXPIRE_DATE,
+      </if>
+      <if test="priority != null" >
+        PRIORITY,
+      </if>
+      <if test="firstPriorityDate != null" >
+        FIRST_PRIORITY_DATE,
+      </if>
+      <if test="iapp != null" >
+        IAPP,
+      </if>
+      <if test="ipub != null" >
+        IPUB,
+      </if>
+      <if test="den != null" >
+        DEN,
+      </if>
+      <if test="application != null" >
+        APPLICATION,
+      </if>
+      <if test="applicationArea != null" >
+        APPLICATION_AREA,
+      </if>
+      <if test="applicationAddress != null" >
+        APPLICATION_ADDRESS,
+      </if>
+      <if test="applicationType != null" >
+        APPLICATION_TYPE,
+      </if>
+      <if test="applicationQuantity != null" >
+        APPLICATION_QUANTITY,
+      </if>
+      <if test="patentee != null" >
+        PATENTEE,
+      </if>
+      <if test="patenteeArea != null" >
+        PATENTEE_AREA,
+      </if>
+      <if test="patenteeAddress != null" >
+        PATENTEE_ADDRESS,
+      </if>
+      <if test="patenteeType != null" >
+        PATENTEE_TYPE,
+      </if>
+      <if test="patenteeQuantity != null" >
+        PATENTEE_QUANTITY,
+      </if>
+      <if test="inventor != null" >
+        INVENTOR,
+      </if>
+      <if test="inventors != null" >
+        INVENTORS,
+      </if>
+      <if test="censor != null" >
+        CENSOR,
+      </if>
+      <if test="agentName != null" >
+        AGENT_NAME,
+      </if>
+      <if test="agencyName != null" >
+        AGENCY_NAME,
+      </if>
+      <if test="ipc != null" >
+        IPC,
+      </if>
+      <if test="mainIpc != null" >
+        MAIN_IPC,
+      </if>
+      <if test="ipcQuantity != null" >
+        IPC_QUANTITY,
+      </if>
+      <if test="cpc != null" >
+        CPC,
+      </if>
+      <if test="mainCpc != null" >
+        MAIN_CPC,
+      </if>
+      <if test="cpcQuantity != null" >
+        CPC_QUANTITY,
+      </if>
+      <if test="designClass != null" >
+        DESIGN_CLASS,
+      </if>
+      <if test="legalStatus != null" >
+        LEGAL_STATUS,
+      </if>
+      <if test="isGrant != null" >
+        IS_GRANT,
+      </if>
+      <if test="pkpuStatus != null" >
+        PKPU_STATUS,
+      </if>
+      <if test="survivalPeriod != null" >
+        SURVIVAL_PERIOD,
+      </if>
+      <if test="expectedResidualLife != null" >
+        EXPECTED_RESIDUAL_LIFE,
+      </if>
+      <if test="transferStatus != null" >
+        TRANSFER_STATUS,
+      </if>
+      <if test="licenseStatus != null" >
+        LICENSE_STATUS,
+      </if>
+      <if test="pledgeStatus != null" >
+        PLEDGE_STATUS,
+      </if>
+      <if test="reexamInvalidStatus != null" >
+        REEXAM_INVALID_STATUS,
+      </if>
+      <if test="lawsuitStatus != null" >
+        LAWSUIT_STATUS,
+      </if>
+      <if test="basicPatentFamily != null" >
+        BASIC_PATENT_FAMILY,
+      </if>
+      <if test="basicPatentFamilyQuantity != null" >
+        BASIC_PATENT_FAMILY_QUANTITY,
+      </if>
+      <if test="extendedPatentFamily != null" >
+        EXTENDED_PATENT_FAMILY,
+      </if>
+      <if test="extendedPatentFamilyQuantity != null" >
+        EXTENDED_PATENT_FAMILY_QUANTITY,
+      </if>
+      <if test="patentCitation != null" >
+        PATENT_CITATION,
+      </if>
+      <if test="patentCitationQuantity != null" >
+        PATENT_CITATION_QUANTITY,
+      </if>
+      <if test="patentCited != null" >
+        PATENT_CITED,
+      </if>
+      <if test="patentCitedQuantity != null" >
+        PATENT_CITED_QUANTITY,
+      </if>
+      <if test="overallMerit != null" >
+        OVERALL_MERIT,
+      </if>
+      <if test="technicalIndex != null" >
+        TECHNICAL_INDEX,
+      </if>
+      <if test="claimsIndex != null" >
+        CLAIMS_INDEX,
+      </if>
+      <if test="marketIndex != null" >
+        MARKET_INDEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="patentName != null" >
+        #{patentName,jdbcType=VARCHAR},
+      </if>
+
+      <if test="claimsQuantity != null" >
+        #{claimsQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="independentClaimsQuantity != null" >
+        #{independentClaimsQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfFullTextQuantity != null" >
+        #{pdfFullTextQuantity,jdbcType=VARCHAR},
+      </if>
+
+      <if test="appNumber != null" >
+        #{appNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="appDate != null" >
+        #{appDate,jdbcType=VARCHAR},
+      </if>
+
+      <if test="pubDate != null" >
+        #{pubDate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPubDate != null" >
+        #{firstPubDate,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="patentType != null" >
+        #{patentType,jdbcType=VARCHAR},
+      </if>
+      <if test="grantDate != null" >
+        #{grantDate,jdbcType=VARCHAR},
+      </if>
+      <if test="expireDate != null" >
+        #{expireDate,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPriorityDate != null" >
+        #{firstPriorityDate,jdbcType=VARCHAR},
+      </if>
+      <if test="iapp != null" >
+        #{iapp,jdbcType=VARCHAR},
+      </if>
+      <if test="ipub != null" >
+        #{ipub,jdbcType=VARCHAR},
+      </if>
+      <if test="den != null" >
+        #{den,jdbcType=VARCHAR},
+      </if>
+      <if test="application != null" >
+        #{application,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationArea != null" >
+        #{applicationArea,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationAddress != null" >
+        #{applicationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationType != null" >
+        #{applicationType,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationQuantity != null" >
+        #{applicationQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="patentee != null" >
+        #{patentee,jdbcType=VARCHAR},
+      </if>
+      <if test="patenteeArea != null" >
+        #{patenteeArea,jdbcType=VARCHAR},
+      </if>
+      <if test="patenteeAddress != null" >
+        #{patenteeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="patenteeType != null" >
+        #{patenteeType,jdbcType=VARCHAR},
+      </if>
+      <if test="patenteeQuantity != null" >
+        #{patenteeQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="inventor != null" >
+        #{inventor,jdbcType=VARCHAR},
+      </if>
+      <if test="inventors != null" >
+        #{inventors,jdbcType=VARCHAR},
+      </if>
+      <if test="censor != null" >
+        #{censor,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null" >
+        #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyName != null" >
+        #{agencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="ipc != null" >
+        #{ipc,jdbcType=VARCHAR},
+      </if>
+      <if test="mainIpc != null" >
+        #{mainIpc,jdbcType=VARCHAR},
+      </if>
+      <if test="ipcQuantity != null" >
+        #{ipcQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="cpc != null" >
+        #{cpc,jdbcType=VARCHAR},
+      </if>
+      <if test="mainCpc != null" >
+        #{mainCpc,jdbcType=VARCHAR},
+      </if>
+      <if test="cpcQuantity != null" >
+        #{cpcQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="designClass != null" >
+        #{designClass,jdbcType=VARCHAR},
+      </if>
+      <if test="legalStatus != null" >
+        #{legalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isGrant != null" >
+        #{isGrant,jdbcType=BIT},
+      </if>
+      <if test="pkpuStatus != null" >
+        #{pkpuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="survivalPeriod != null" >
+        #{survivalPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="expectedResidualLife != null" >
+        #{expectedResidualLife,jdbcType=VARCHAR},
+      </if>
+      <if test="transferStatus != null" >
+        #{transferStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseStatus != null" >
+        #{licenseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pledgeStatus != null" >
+        #{pledgeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reexamInvalidStatus != null" >
+        #{reexamInvalidStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lawsuitStatus != null" >
+        #{lawsuitStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="basicPatentFamily != null" >
+        #{basicPatentFamily,jdbcType=VARCHAR},
+      </if>
+      <if test="basicPatentFamilyQuantity != null" >
+        #{basicPatentFamilyQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="extendedPatentFamily != null" >
+        #{extendedPatentFamily,jdbcType=VARCHAR},
+      </if>
+      <if test="extendedPatentFamilyQuantity != null" >
+        #{extendedPatentFamilyQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="patentCitation != null" >
+        #{patentCitation,jdbcType=VARCHAR},
+      </if>
+      <if test="patentCitationQuantity != null" >
+        #{patentCitationQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="patentCited != null" >
+        #{patentCited,jdbcType=VARCHAR},
+      </if>
+      <if test="patentCitedQuantity != null" >
+        #{patentCitedQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="overallMerit != null" >
+        #{overallMerit,jdbcType=VARCHAR},
+      </if>
+      <if test="technicalIndex != null" >
+        #{technicalIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="claimsIndex != null" >
+        #{claimsIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="marketIndex != null" >
+        #{marketIndex,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.hcis.hcrp.patent.entity.TempPatent" >
+    update temp_patent
+    <set >
+      <if test="patentName != null" >
+        PATENT_NAME = #{patentName,jdbcType=VARCHAR},
+      </if>
+
+      <if test="claimsQuantity != null" >
+        CLAIMS_QUANTITY = #{claimsQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="independentClaimsQuantity != null" >
+        INDEPENDENT_CLAIMS_QUANTITY = #{independentClaimsQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfFullTextQuantity != null" >
+        PDF_FULL_TEXT_QUANTITY = #{pdfFullTextQuantity,jdbcType=VARCHAR},
+      </if>
+
+      <if test="appNumber != null" >
+        APP_NUMBER = #{appNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="appDate != null" >
+        APP_DATE = #{appDate,jdbcType=VARCHAR},
+      </if>
+
+      <if test="pubDate != null" >
+        PUB_DATE = #{pubDate,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPubDate != null" >
+        FIRST_PUB_DATE = #{firstPubDate,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        COUNTRY = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="patentType != null" >
+        PATENT_TYPE = #{patentType,jdbcType=VARCHAR},
+      </if>
+      <if test="grantDate != null" >
+        GRANT_DATE = #{grantDate,jdbcType=VARCHAR},
+      </if>
+      <if test="expireDate != null" >
+        EXPIRE_DATE = #{expireDate,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        PRIORITY = #{priority,jdbcType=VARCHAR},
+      </if>
+      <if test="firstPriorityDate != null" >
+        FIRST_PRIORITY_DATE = #{firstPriorityDate,jdbcType=VARCHAR},
+      </if>
+      <if test="iapp != null" >
+        IAPP = #{iapp,jdbcType=VARCHAR},
+      </if>
+      <if test="ipub != null" >
+        IPUB = #{ipub,jdbcType=VARCHAR},
+      </if>
+      <if test="den != null" >
+        DEN = #{den,jdbcType=VARCHAR},
+      </if>
+      <if test="application != null" >
+        APPLICATION = #{application,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationArea != null" >
+        APPLICATION_AREA = #{applicationArea,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationAddress != null" >
+        APPLICATION_ADDRESS = #{applicationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationType != null" >
+        APPLICATION_TYPE = #{applicationType,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationQuantity != null" >
+        APPLICATION_QUANTITY = #{applicationQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="patentee != null" >
+        PATENTEE = #{patentee,jdbcType=VARCHAR},
+      </if>
+      <if test="patenteeArea != null" >
+        PATENTEE_AREA = #{patenteeArea,jdbcType=VARCHAR},
+      </if>
+      <if test="patenteeAddress != null" >
+        PATENTEE_ADDRESS = #{patenteeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="patenteeType != null" >
+        PATENTEE_TYPE = #{patenteeType,jdbcType=VARCHAR},
+      </if>
+      <if test="patenteeQuantity != null" >
+        PATENTEE_QUANTITY = #{patenteeQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="inventor != null" >
+        INVENTOR = #{inventor,jdbcType=VARCHAR},
+      </if>
+      <if test="inventors != null" >
+        INVENTORS = #{inventors,jdbcType=VARCHAR},
+      </if>
+      <if test="censor != null" >
+        CENSOR = #{censor,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null" >
+        AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyName != null" >
+        AGENCY_NAME = #{agencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="ipc != null" >
+        IPC = #{ipc,jdbcType=VARCHAR},
+      </if>
+      <if test="mainIpc != null" >
+        MAIN_IPC = #{mainIpc,jdbcType=VARCHAR},
+      </if>
+      <if test="ipcQuantity != null" >
+        IPC_QUANTITY = #{ipcQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="cpc != null" >
+        CPC = #{cpc,jdbcType=VARCHAR},
+      </if>
+      <if test="mainCpc != null" >
+        MAIN_CPC = #{mainCpc,jdbcType=VARCHAR},
+      </if>
+      <if test="cpcQuantity != null" >
+        CPC_QUANTITY = #{cpcQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="designClass != null" >
+        DESIGN_CLASS = #{designClass,jdbcType=VARCHAR},
+      </if>
+      <if test="legalStatus != null" >
+        LEGAL_STATUS = #{legalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isGrant != null" >
+        IS_GRANT = #{isGrant,jdbcType=BIT},
+      </if>
+      <if test="pkpuStatus != null" >
+        PKPU_STATUS = #{pkpuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="survivalPeriod != null" >
+        SURVIVAL_PERIOD = #{survivalPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="expectedResidualLife != null" >
+        EXPECTED_RESIDUAL_LIFE = #{expectedResidualLife,jdbcType=VARCHAR},
+      </if>
+      <if test="transferStatus != null" >
+        TRANSFER_STATUS = #{transferStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseStatus != null" >
+        LICENSE_STATUS = #{licenseStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="pledgeStatus != null" >
+        PLEDGE_STATUS = #{pledgeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reexamInvalidStatus != null" >
+        REEXAM_INVALID_STATUS = #{reexamInvalidStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lawsuitStatus != null" >
+        LAWSUIT_STATUS = #{lawsuitStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="basicPatentFamily != null" >
+        BASIC_PATENT_FAMILY = #{basicPatentFamily,jdbcType=VARCHAR},
+      </if>
+      <if test="basicPatentFamilyQuantity != null" >
+        BASIC_PATENT_FAMILY_QUANTITY = #{basicPatentFamilyQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="extendedPatentFamily != null" >
+        EXTENDED_PATENT_FAMILY = #{extendedPatentFamily,jdbcType=VARCHAR},
+      </if>
+      <if test="extendedPatentFamilyQuantity != null" >
+        EXTENDED_PATENT_FAMILY_QUANTITY = #{extendedPatentFamilyQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="patentCitation != null" >
+        PATENT_CITATION = #{patentCitation,jdbcType=VARCHAR},
+      </if>
+      <if test="patentCitationQuantity != null" >
+        PATENT_CITATION_QUANTITY = #{patentCitationQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="patentCited != null" >
+        PATENT_CITED = #{patentCited,jdbcType=VARCHAR},
+      </if>
+      <if test="patentCitedQuantity != null" >
+        PATENT_CITED_QUANTITY = #{patentCitedQuantity,jdbcType=VARCHAR},
+      </if>
+      <if test="overallMerit != null" >
+        OVERALL_MERIT = #{overallMerit,jdbcType=VARCHAR},
+      </if>
+      <if test="technicalIndex != null" >
+        TECHNICAL_INDEX = #{technicalIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="claimsIndex != null" >
+        CLAIMS_INDEX = #{claimsIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="marketIndex != null" >
+        MARKET_INDEX = #{marketIndex,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.hcis.hcrp.patent.entity.TempPatent" >
+    update temp_patent
+    set PATENT_NAME = #{patentName,jdbcType=VARCHAR},
+      CLAIMS_QUANTITY = #{claimsQuantity,jdbcType=VARCHAR},
+      INDEPENDENT_CLAIMS_QUANTITY = #{independentClaimsQuantity,jdbcType=VARCHAR},
+      PDF_FULL_TEXT_QUANTITY = #{pdfFullTextQuantity,jdbcType=VARCHAR},
+      APP_NUMBER = #{appNumber,jdbcType=VARCHAR},
+      APP_DATE = #{appDate,jdbcType=VARCHAR},
+      PUB_DATE = #{pubDate,jdbcType=VARCHAR},
+      FIRST_PUB_DATE = #{firstPubDate,jdbcType=VARCHAR},
+      COUNTRY = #{country,jdbcType=VARCHAR},
+      PATENT_TYPE = #{patentType,jdbcType=VARCHAR},
+      GRANT_DATE = #{grantDate,jdbcType=VARCHAR},
+      EXPIRE_DATE = #{expireDate,jdbcType=VARCHAR},
+      PRIORITY = #{priority,jdbcType=VARCHAR},
+      FIRST_PRIORITY_DATE = #{firstPriorityDate,jdbcType=VARCHAR},
+      IAPP = #{iapp,jdbcType=VARCHAR},
+      IPUB = #{ipub,jdbcType=VARCHAR},
+      DEN = #{den,jdbcType=VARCHAR},
+      APPLICATION = #{application,jdbcType=VARCHAR},
+      APPLICATION_AREA = #{applicationArea,jdbcType=VARCHAR},
+      APPLICATION_ADDRESS = #{applicationAddress,jdbcType=VARCHAR},
+      APPLICATION_TYPE = #{applicationType,jdbcType=VARCHAR},
+      APPLICATION_QUANTITY = #{applicationQuantity,jdbcType=VARCHAR},
+      PATENTEE = #{patentee,jdbcType=VARCHAR},
+      PATENTEE_AREA = #{patenteeArea,jdbcType=VARCHAR},
+      PATENTEE_ADDRESS = #{patenteeAddress,jdbcType=VARCHAR},
+      PATENTEE_TYPE = #{patenteeType,jdbcType=VARCHAR},
+      PATENTEE_QUANTITY = #{patenteeQuantity,jdbcType=VARCHAR},
+      INVENTOR = #{inventor,jdbcType=VARCHAR},
+      INVENTORS = #{inventors,jdbcType=VARCHAR},
+      CENSOR = #{censor,jdbcType=VARCHAR},
+      AGENT_NAME = #{agentName,jdbcType=VARCHAR},
+      AGENCY_NAME = #{agencyName,jdbcType=VARCHAR},
+      IPC = #{ipc,jdbcType=VARCHAR},
+      MAIN_IPC = #{mainIpc,jdbcType=VARCHAR},
+      IPC_QUANTITY = #{ipcQuantity,jdbcType=VARCHAR},
+      CPC = #{cpc,jdbcType=VARCHAR},
+      MAIN_CPC = #{mainCpc,jdbcType=VARCHAR},
+      CPC_QUANTITY = #{cpcQuantity,jdbcType=VARCHAR},
+      DESIGN_CLASS = #{designClass,jdbcType=VARCHAR},
+      LEGAL_STATUS = #{legalStatus,jdbcType=VARCHAR},
+      IS_GRANT = #{isGrant,jdbcType=BIT},
+      PKPU_STATUS = #{pkpuStatus,jdbcType=VARCHAR},
+      SURVIVAL_PERIOD = #{survivalPeriod,jdbcType=VARCHAR},
+      EXPECTED_RESIDUAL_LIFE = #{expectedResidualLife,jdbcType=VARCHAR},
+      TRANSFER_STATUS = #{transferStatus,jdbcType=VARCHAR},
+      LICENSE_STATUS = #{licenseStatus,jdbcType=VARCHAR},
+      PLEDGE_STATUS = #{pledgeStatus,jdbcType=VARCHAR},
+      REEXAM_INVALID_STATUS = #{reexamInvalidStatus,jdbcType=VARCHAR},
+      LAWSUIT_STATUS = #{lawsuitStatus,jdbcType=VARCHAR},
+      BASIC_PATENT_FAMILY = #{basicPatentFamily,jdbcType=VARCHAR},
+      BASIC_PATENT_FAMILY_QUANTITY = #{basicPatentFamilyQuantity,jdbcType=VARCHAR},
+      EXTENDED_PATENT_FAMILY = #{extendedPatentFamily,jdbcType=VARCHAR},
+      EXTENDED_PATENT_FAMILY_QUANTITY = #{extendedPatentFamilyQuantity,jdbcType=VARCHAR},
+      PATENT_CITATION = #{patentCitation,jdbcType=VARCHAR},
+      PATENT_CITATION_QUANTITY = #{patentCitationQuantity,jdbcType=VARCHAR},
+      PATENT_CITED = #{patentCited,jdbcType=VARCHAR},
+      PATENT_CITED_QUANTITY = #{patentCitedQuantity,jdbcType=VARCHAR},
+      OVERALL_MERIT = #{overallMerit,jdbcType=VARCHAR},
+      TECHNICAL_INDEX = #{technicalIndex,jdbcType=VARCHAR},
+      CLAIMS_INDEX = #{claimsIndex,jdbcType=VARCHAR},
+      MARKET_INDEX = #{marketIndex,jdbcType=VARCHAR},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATEDBY = #{updatedby,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DELETED = #{isDeleted,jdbcType=CHAR},
+      VERSION = #{version,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="deleteByPrimaryKeys" parameterType="java.lang.String">
+    UPDATE temp_patent
+    SET IS_DELETED = 'Y'
+    WHERE
+    ID IN
+    <foreach collection="patentIds" item="patentId" index="i" open="(" close=")" separator=",">
+      #{patentId,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <update id="deleteByLogic" parameterType="com.hcis.hcrp.patent.entity.TempPatent">
+    update temp_patent
+    <set>
+      IS_DELETED = 'Y',
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <insert id="insertBatch" parameterType="java.util.List">
+
+    insert into temp_patent (ID, PATENT_NAME, CLAIMS_QUANTITY,
+    INDEPENDENT_CLAIMS_QUANTITY, PDF_FULL_TEXT_QUANTITY,APP_NUMBER,
+    APP_DATE, PUB_DATE, FIRST_PUB_DATE,
+    COUNTRY, PATENT_TYPE, GRANT_DATE,
+    EXPIRE_DATE, PRIORITY, FIRST_PRIORITY_DATE,
+    IAPP, IPUB, DEN,
+    APPLICATION, APPLICATION_AREA, APPLICATION_ADDRESS,
+    APPLICATION_TYPE, APPLICATION_QUANTITY, PATENTEE,
+    PATENTEE_AREA, PATENTEE_ADDRESS, PATENTEE_TYPE,
+    PATENTEE_QUANTITY, INVENTOR, INVENTORS,
+    CENSOR, AGENT_NAME, AGENCY_NAME,
+    IPC, MAIN_IPC, IPC_QUANTITY,
+    CPC, MAIN_CPC, CPC_QUANTITY,
+    DESIGN_CLASS, LEGAL_STATUS, IS_GRANT,
+    PKPU_STATUS, SURVIVAL_PERIOD, EXPECTED_RESIDUAL_LIFE,
+    TRANSFER_STATUS, LICENSE_STATUS, PLEDGE_STATUS,
+    REEXAM_INVALID_STATUS, LAWSUIT_STATUS, BASIC_PATENT_FAMILY,
+    BASIC_PATENT_FAMILY_QUANTITY, EXTENDED_PATENT_FAMILY,
+    EXTENDED_PATENT_FAMILY_QUANTITY, PATENT_CITATION,
+    PATENT_CITATION_QUANTITY, PATENT_CITED, PATENT_CITED_QUANTITY,
+    OVERALL_MERIT, TECHNICAL_INDEX, CLAIMS_INDEX,
+    MARKET_INDEX,CREATOR, CREATE_TIME, UPDATEDBY, UPDATE_TIME, IS_DELETED, VERSION)
+    values
+    <foreach collection="list" open="" close="" separator="," item="patent">
+      (
+      #{patent.id,jdbcType=VARCHAR}, #{patent.patentName,jdbcType=VARCHAR},
+      #{patent.claimsQuantity,jdbcType=VARCHAR},
+      #{patent.independentClaimsQuantity,jdbcType=VARCHAR}, #{patent.pdfFullTextQuantity,jdbcType=VARCHAR},
+      #{patent.appNumber,jdbcType=VARCHAR}, #{patent.appDate,jdbcType=VARCHAR}, #{patent.pubDate,jdbcType=VARCHAR},
+      #{patent.firstPubDate,jdbcType=VARCHAR},
+      #{patent.country,jdbcType=VARCHAR}, #{patent.patentType,jdbcType=VARCHAR}, #{patent.grantDate,jdbcType=VARCHAR},
+      #{patent.expireDate,jdbcType=VARCHAR}, #{patent.priority,jdbcType=VARCHAR},
+      #{patent.firstPriorityDate,jdbcType=VARCHAR},
+      #{patent.iapp,jdbcType=VARCHAR}, #{patent.ipub,jdbcType=VARCHAR}, #{patent.den,jdbcType=VARCHAR},
+      #{patent.application,jdbcType=VARCHAR}, #{patent.applicationArea,jdbcType=VARCHAR},
+      #{patent.applicationAddress,jdbcType=VARCHAR},
+      #{patent.applicationType,jdbcType=VARCHAR}, #{patent.applicationQuantity,jdbcType=VARCHAR},
+      #{patent.patentee,jdbcType=VARCHAR},
+      #{patent.patenteeArea,jdbcType=VARCHAR}, #{patent.patenteeAddress,jdbcType=VARCHAR},
+      #{patent.patenteeType,jdbcType=VARCHAR},
+      #{patent.patenteeQuantity,jdbcType=VARCHAR}, #{patent.inventor,jdbcType=VARCHAR},
+      #{patent.inventors,jdbcType=VARCHAR},
+      #{patent.censor,jdbcType=VARCHAR}, #{patent.agentName,jdbcType=VARCHAR}, #{patent.agencyName,jdbcType=VARCHAR},
+      #{patent.ipc,jdbcType=VARCHAR}, #{patent.mainIpc,jdbcType=VARCHAR}, #{patent.ipcQuantity,jdbcType=VARCHAR},
+      #{patent.cpc,jdbcType=VARCHAR}, #{patent.mainCpc,jdbcType=VARCHAR}, #{patent.cpcQuantity,jdbcType=VARCHAR},
+      #{patent.designClass,jdbcType=VARCHAR}, #{patent.legalStatus,jdbcType=VARCHAR}, #{patent.isGrant,jdbcType=BIT},
+      #{patent.pkpuStatus,jdbcType=VARCHAR}, #{patent.survivalPeriod,jdbcType=VARCHAR},
+      #{patent.expectedResidualLife,jdbcType=VARCHAR},
+      #{patent.transferStatus,jdbcType=VARCHAR}, #{patent.licenseStatus,jdbcType=VARCHAR},
+      #{patent.pledgeStatus,jdbcType=VARCHAR},
+      #{patent.reexamInvalidStatus,jdbcType=VARCHAR}, #{patent.lawsuitStatus,jdbcType=VARCHAR},
+      #{patent.basicPatentFamily,jdbcType=VARCHAR},
+      #{patent.basicPatentFamilyQuantity,jdbcType=VARCHAR}, #{patent.extendedPatentFamily,jdbcType=VARCHAR},
+      #{patent.extendedPatentFamilyQuantity,jdbcType=VARCHAR}, #{patent.patentCitation,jdbcType=VARCHAR},
+      #{patent.patentCitationQuantity,jdbcType=VARCHAR}, #{patent.patentCited,jdbcType=VARCHAR},
+      #{patent.patentCitedQuantity,jdbcType=VARCHAR},
+      #{patent.overallMerit,jdbcType=VARCHAR}, #{patent.technicalIndex,jdbcType=VARCHAR},
+      #{patent.claimsIndex,jdbcType=VARCHAR},
+      #{patent.marketIndex,jdbcType=VARCHAR},#{patent.creator,jdbcType=VARCHAR}, #{patent.createTime,jdbcType=TIMESTAMP}, #{patent.updatedby,jdbcType=VARCHAR},
+      #{patent.updateTime,jdbcType=TIMESTAMP}, #{patent.isDeleted,jdbcType=CHAR}, #{patent.version,jdbcType=BIGINT}
+      )
+    </foreach>
+    ;
+  </insert>
+
+  <select id="selectProjectData" resultMap="BaseResultMap">
+      SELECT
+        <include refid="Base_Column_List" />
+      FROM
+        temp_patent
+  </select>
+
+  <select id="reportPatents" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+      tp.ID, tp.PATENT_NAME, tp.CLAIMS_QUANTITY, tp.INDEPENDENT_CLAIMS_QUANTITY, tp.PDF_FULL_TEXT_QUANTITY,
+      tp.APP_NUMBER, tp.APP_DATE, tp.PUB_DATE, tp.FIRST_PUB_DATE, tp.COUNTRY, tp.PATENT_TYPE,
+      tp.GRANT_DATE, tp.EXPIRE_DATE, tp.PRIORITY, tp.FIRST_PRIORITY_DATE, tp.IAPP, tp.IPUB, tp.DEN, tp.APPLICATION,
+      tp.APPLICATION_AREA, tp.APPLICATION_ADDRESS, tp.APPLICATION_TYPE, tp.APPLICATION_QUANTITY, tp.PATENTEE,
+      tp.PATENTEE_AREA, tp.PATENTEE_ADDRESS, tp.PATENTEE_TYPE, tp.PATENTEE_QUANTITY, tp.INVENTOR, tp.INVENTORS,
+      tp.CENSOR, AGENT_NAME, tp.AGENCY_NAME, tp.IPC, tp.MAIN_IPC, tp.IPC_QUANTITY, tp.CPC, tp.MAIN_CPC, tp.CPC_QUANTITY,
+      tp.DESIGN_CLASS, tp.LEGAL_STATUS, tp.IS_GRANT, tp.PKPU_STATUS, tp.SURVIVAL_PERIOD, tp.EXPECTED_RESIDUAL_LIFE,
+      tp.TRANSFER_STATUS, tp.LICENSE_STATUS, tp.PLEDGE_STATUS, tp.REEXAM_INVALID_STATUS, tp.LAWSUIT_STATUS,
+      tp.BASIC_PATENT_FAMILY, tp.BASIC_PATENT_FAMILY_QUANTITY, tp.EXTENDED_PATENT_FAMILY, tp.EXTENDED_PATENT_FAMILY_QUANTITY,
+      tp.PATENT_CITATION, tp.PATENT_CITATION_QUANTITY, tp.PATENT_CITED, tp.PATENT_CITED_QUANTITY, tp.OVERALL_MERIT,
+      tp.TECHNICAL_INDEX, tp.CLAIMS_INDEX, tp.MARKET_INDEX, rtp.CHAPTER_ID
+    from
+      hcrp_report_patent as rtp
+    left join temp_patent  as tp ON tp.ID = rtp.PATENT_ID
+    where rtp.REPORT_ID = #{_reportId, jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectChapterData" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+      tp.ID, tp.PATENT_NAME, tp.CLAIMS_QUANTITY, tp.INDEPENDENT_CLAIMS_QUANTITY, tp.PDF_FULL_TEXT_QUANTITY,
+      tp.APP_NUMBER, tp.APP_DATE, tp.PUB_DATE, tp.FIRST_PUB_DATE, tp.COUNTRY, tp.PATENT_TYPE,
+      tp.GRANT_DATE, tp.EXPIRE_DATE, tp.PRIORITY, tp.FIRST_PRIORITY_DATE, tp.IAPP, tp.IPUB, tp.DEN, tp.APPLICATION,
+      tp.APPLICATION_AREA, tp.APPLICATION_ADDRESS, tp.APPLICATION_TYPE, tp.APPLICATION_QUANTITY, tp.PATENTEE,
+      tp.PATENTEE_AREA, tp.PATENTEE_ADDRESS, tp.PATENTEE_TYPE, tp.PATENTEE_QUANTITY, tp.INVENTOR, tp.INVENTORS,
+      tp.CENSOR, AGENT_NAME, tp.AGENCY_NAME, tp.IPC, tp.MAIN_IPC, tp.IPC_QUANTITY, tp.CPC, tp.MAIN_CPC, tp.CPC_QUANTITY,
+      tp.DESIGN_CLASS, tp.LEGAL_STATUS, tp.IS_GRANT, tp.PKPU_STATUS, tp.SURVIVAL_PERIOD, tp.EXPECTED_RESIDUAL_LIFE,
+      tp.TRANSFER_STATUS, tp.LICENSE_STATUS, tp.PLEDGE_STATUS, tp.REEXAM_INVALID_STATUS, tp.LAWSUIT_STATUS,
+      tp.BASIC_PATENT_FAMILY, tp.BASIC_PATENT_FAMILY_QUANTITY, tp.EXTENDED_PATENT_FAMILY, tp.EXTENDED_PATENT_FAMILY_QUANTITY,
+      tp.PATENT_CITATION, tp.PATENT_CITATION_QUANTITY, tp.PATENT_CITED, tp.PATENT_CITED_QUANTITY, tp.OVERALL_MERIT,
+      tp.TECHNICAL_INDEX, tp.CLAIMS_INDEX, tp.MARKET_INDEX, rtp.CHAPTER_ID
+    from
+      hcrp_report_patent as rtp
+        left join temp_patent  as tp ON tp.ID = rtp.PATENT_ID
+    where rtp.CHAPTER_ID = #{_chapterId, jdbcType=VARCHAR}
+  </select>
+
+  <select id="queryByAppNumbers" parameterType="java.util.List" resultMap="BaseResultMap">
+    select
+        <include refid="Base_Column_List"/>
+    from
+    temp_patent where APP_NUMBER in
+    <foreach collection="list" item="appNumber" open="(" close=")" separator=",">
+      #{appNumber, jdbcType=VARCHAR}
+    </foreach>
+  </select>
+
+  <insert id="saveReportPatents" parameterType="java.util.List">
+    insert into hcrp_report_patent (REPORT_ID, PATENT_ID, CHAPTER_ID)
+    values
+    <foreach collection="list" item="patent" separator=",">
+      (#{patent.reportId,jdbcType=VARCHAR}, #{patent.patentId,jdbcType=VARCHAR}, #{patent.chapterId,jdbcType=VARCHAR})
+    </foreach>
+    ;
+  </insert>
+
+
+  <select id="selectBySearchParam" resultMap="BaseResultMap" parameterType="searchParam">
+    select
+    <include refid="Base_Column_List"/>
+    from temp_patent T where IS_DELETED='N'
+<!--    <if test="paramMap.patentName!=null and paramMap.patentName!=''">
+      and T.PATENT_NAME like CONCAT('%',#{paramMap.patentName, jdbcType=VARCHAR},'%')
+    </if>
+
+    <if test="paramMap.searchUserId != null and paramMap.searchUserId != ''">
+      and T.CREATOR = #{paramMap.searchUserId, jdbcType=VARCHAR}
+    </if>-->
+
+    order by t.update_time desc,t.create_time desc,t.id
+  </select>
+</mapper>

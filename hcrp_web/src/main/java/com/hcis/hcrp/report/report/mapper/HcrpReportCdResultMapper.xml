@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hcis.hcrp.report.report.mapper.HcrpReportCdResultMapper" >
+  <resultMap id="BaseResultMap" type="com.hcis.hcrp.report.report.entity.HcrpReportCdResult" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="REPORT_ID" property="reportId" jdbcType="VARCHAR" />
+    <result column="CHAPTER_ID" property="chapterId" jdbcType="VARCHAR" />
+    <result column="DIMENSION_ID" property="dimensionId" jdbcType="VARCHAR" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_BY" property="updatedby" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DELETED" property="isDeleted" jdbcType="VARCHAR" />
+    <result column="VERSION" property="version" jdbcType="BIGINT" />
+    <result column="CHART_DATA" property="chartData" jdbcType="LONGVARCHAR" />
+    <result column="CHART_BASE_64" property="chartBase64" jdbcType="LONGVARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    ID, REPORT_ID, CHAPTER_ID, DIMENSION_ID, CREATOR, CREATE_TIME, UPDATED_BY, UPDATE_TIME, 
+    IS_DELETED, VERSION, CHART_DATA, CHART_BASE_64
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from hcrp_report_cd_result
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from hcrp_report_cd_result
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hcis.hcrp.report.report.entity.HcrpReportCdResult" >
+    insert into hcrp_report_cd_result (ID, REPORT_ID, CHAPTER_ID, 
+      DIMENSION_ID, CREATOR, CREATE_TIME, 
+      UPDATED_BY, UPDATE_TIME, IS_DELETED, 
+      VERSION, CHART_DATA, CHART_BASE_64
+      )
+    values (#{id,jdbcType=VARCHAR}, #{reportId,jdbcType=VARCHAR}, #{chapterId,jdbcType=VARCHAR}, 
+      #{dimensionId,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updatedby,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=VARCHAR},
+      #{version,jdbcType=BIGINT}, #{chartData,jdbcType=LONGVARCHAR}, #{chartBase64,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hcis.hcrp.report.report.entity.HcrpReportCdResult" >
+    insert into hcrp_report_cd_result
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="reportId != null" >
+        REPORT_ID,
+      </if>
+      <if test="chapterId != null" >
+        CHAPTER_ID,
+      </if>
+      <if test="dimensionId != null" >
+        DIMENSION_ID,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updatedby != null" >
+        UPDATED_BY,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED,
+      </if>
+      <if test="version != null" >
+        VERSION,
+      </if>
+      <if test="chartData != null" >
+        CHART_DATA,
+      </if>
+      <if test="chartBase64 != null" >
+        CHART_BASE_64,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="reportId != null" >
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterId != null" >
+        #{chapterId,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionId != null" >
+        #{dimensionId,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="chartData != null" >
+        #{chartData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="chartBase64 != null" >
+        #{chartBase64,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hcis.hcrp.report.report.entity.HcrpReportCdResult" >
+    update hcrp_report_cd_result
+    <set >
+      <if test="reportId != null" >
+        REPORT_ID = #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterId != null" >
+        CHAPTER_ID = #{chapterId,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionId != null" >
+        DIMENSION_ID = #{dimensionId,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedby != null" >
+        UPDATED_BY = #{updatedby,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="chartData != null" >
+        CHART_DATA = #{chartData,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="chartBase64 != null" >
+        CHART_BASE_64 = #{chartBase64,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hcis.hcrp.report.report.entity.HcrpReportCdResult" >
+    update hcrp_report_cd_result
+    set REPORT_ID = #{reportId,jdbcType=VARCHAR},
+      CHAPTER_ID = #{chapterId,jdbcType=VARCHAR},
+      DIMENSION_ID = #{dimensionId,jdbcType=VARCHAR},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedby,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      IS_DELETED = #{isDeleted,jdbcType=VARCHAR},
+      VERSION = #{version,jdbcType=BIGINT},
+      CHART_DATA = #{chartData,jdbcType=LONGVARCHAR},
+      CHART_BASE_64 = #{chartBase64,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <insert id="batchSave" parameterType="java.util.List">
+    insert into hcrp_report_cd_result (ID, REPORT_ID, CHAPTER_ID,
+                                       DIMENSION_ID, CREATOR, CREATE_TIME,
+                                        `UPDATED_BY`, UPDATE_TIME, IS_DELETED,
+                                       VERSION, CHART_DATA, CHART_BASE_64
+    )
+    values
+   <foreach collection="list" item="rr" separator=",">
+     (#{rr.id,jdbcType=VARCHAR}, #{rr.reportId,jdbcType=VARCHAR}, #{rr.chapterId,jdbcType=VARCHAR},
+     #{rr.dimensionId,jdbcType=VARCHAR}, #{rr.creator,jdbcType=VARCHAR}, #{rr.createTime,jdbcType=TIMESTAMP},
+     #{rr.updatedby,jdbcType=VARCHAR}, #{rr.updateTime,jdbcType=TIMESTAMP}, #{rr.isDeleted,jdbcType=VARCHAR},
+     #{rr.version,jdbcType=BIGINT}, #{rr.chartData,jdbcType=LONGVARCHAR}, #{rr.chartBase64,jdbcType=LONGVARCHAR}
+     )
+   </foreach>
+
+  </insert>
+
+  <select id="listByReportId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+        <include refid="Base_Column_List"/>
+    from  hcrp_report_cd_result
+    where
+    REPORT_ID = #{_reportId, jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByReportId">
+    delete from hcrp_report_cd_result where REPORT_ID = #{_reportId, jdbcType=VARCHAR}
+  </delete>
+</mapper>
