@@ -594,7 +594,7 @@
 			<!-- 			<version>1.6.4.RELEASE</version> 需要spring4 -->
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
-			<version>1.5.2.RELEASE</version>
+			<version>3.3.5</version>
 		</dependency>
 		<!--          3.0 mongodb 需要2.13的驱动以上，4.0mongodb需要3.8版本以上 -->
 		<dependency>
